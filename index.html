@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Poštár | Moderní cimbálovka · Svatební den bez starostí · All Night Show</title>
+  <meta name="description" content="Poštár — cimbál, kapela i jejich propojení. Moderní cimbálovka, kompletní svatební servis a All Night Show™ pro plesy a eventy. Jedno řešení, maximální zážitek.">
+  <meta name="keywords" content="moderní cimbálová muzika, kapela na svatbu, hudba na svatbu, cimbálovka, živá hudba na ples, kompletní svatební hudba">
+  <link rel="canonical" href="https://www.postar.cz/">
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Poštár | Moderní cimbálová muzika">
+  <meta property="og:description" content="Jedna kapela. Celý den. Nezapomenutelná hudba.">
+  <meta property="og:url"         content="https://www.postar.cz">
+  <meta property="og:type"        content="website">
+  <meta property="og:image"       content="https://www.postar.cz/og-image.jpg">
+  <meta property="og:locale"      content="cs_CZ">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Poštár | Moderní cimbálová muzika">
+  <meta name="twitter:description" content="Jedna kapela. Celý den. Nezapomenutelná hudba.">
+  <meta name="twitter:image"       content="https://www.postar.cz/og-image.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Poštár",
+    "url": "https://www.postar.cz",
+    "description": "Moderní cimbálová muzika a multižánrový band. Kompletní hudební servis pro svatby, večírky a plesy.",
+    "genre": ["Folk", "Cimbálová muzika", "Pop", "Wedding Music"],
+    "sameAs": [
+      "https://www.instagram.com/postar.cz",
+      "https://www.facebook.com/postar.cz"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "description": "Hudební produkce pro svatby, plesy a firemní akce — včetně profesionálního ozvučení"
+    }
+  }
+  </script>
+
+  <!-- Fonts (preconnect first for speed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500&display=swap">
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Skip Navigation (A11y) -->
+  <a class="skip-nav" href="#main-content">Přeskočit na obsah</a>
+
+  <!-- ══════════════════════════════════════════
+       HEADER / NAVIGATION
+       ══════════════════════════════════════════ -->
+  <header id="header" role="banner">
+    <nav class="nav container" aria-label="Hlavní navigace">
+
+      <a href="#hero" class="nav-logo" aria-label="Poštár — domů">
+        <img src="logo.png" alt="Poštár" class="logo-img" width="48" height="48">
+      </a>
+
+      <ul class="nav-menu" role="list">
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#jak-to-funguje">Jak to funguje</a></li>
+        <li><a href="#reference">Reference</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#kontakt" class="nav-cta">Poptejte termín</a></li>
+      </ul>
+
+      <button
+        class="hamburger"
+        aria-label="Otevřít menu"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       MAIN CONTENT
+       ══════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section id="hero" data-section="hero" aria-label="Úvod">
+
+      <div class="hero-bg" aria-hidden="true">
+        <canvas id="hero-canvas"></canvas>
+      </div>
+
+      <div class="hero-content container">
+
+        <img
+          src="logo.png"
+          alt="Poštár"
+          class="hero-logo anim-fade-in-up"
+          width="110"
+          height="110"
+        >
+
+        <h1 class="hero-headline anim-fade-in-up anim-delay-1">
+          Nechte hudbu<br>na nás.<br>
+          Vy si užijte akci.
+        </h1>
+
+        <p class="hero-sub anim-fade-in-up anim-delay-2">
+          Cimbál, kapela i jejich propojení.
+          Od klidného obřadu po plný parket.
+        </p>
+
+        <div class="hero-cta anim-fade-in-up anim-delay-3">
+          <a href="#kontakt" class="btn btn-primary">Poptejte termín</a>
+          <a href="#jak-to-funguje" class="btn btn-outline">Jak to funguje</a>
+        </div>
+
+      </div>
+
+      <a href="#sluzby" class="scroll-indicator" aria-label="Posunout dolů">
+        <span class="scroll-arrow" aria-hidden="true"></span>
+      </a>
+
+    </section>
+
+    <!-- ── SLUŽBY ── -->
+    <section id="sluzby" data-section="sluzby" class="section" aria-label="Služby">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Co nabízíme</span>
+          <h2>Vyberte si svou variantu</h2>
+          <p class="section-sub">Každá akce je jiná. Objednejte přesně to, co potřebujete — na hodinu i na celý den.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- KARTA 1: Moderní cimbálovka -->
+          <article class="service-card reveal">
+            <div class="service-badge" aria-label="Nejoblíbenější varianta">Nejoblíbenější</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 48 L16 16 L48 16 L56 48 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                <line x1="16" y1="24" x2="48" y2="24" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="15" y1="32" x2="49" y2="32" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="13" y1="40" x2="51" y2="40" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="32" cy="20" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3>Moderní cimbálovka</h3>
+            <p>Tradiční cimbál v úplně novém zvuku. Vaše oblíbené hity, filmové melodie i lidovky v originálních aranžích — živě, energicky, s duší. Flexibilní délka produkce od jedné hodiny výše.</p>
+            <ul class="service-list">
+              <li>Festivaly a obecní slavnosti</li>
+              <li>Večírky a oslavy</li>
+              <li>Plesy a kulturní akce</li>
+              <li>Samostatné koncerty</li>
+            </ul>
+            <span class="service-tag">Od 1 hodiny · Flexibilní sestava</span>
+            <a href="#kontakt" class="service-cta"
+               onclick="prefillAndScroll('cimbalovka'); return false;">Poptat cimbálovku</a>
+          </article>
+
+          <!-- KARTA 2: Svatební den bez starostí — FEATURED -->
+          <article class="service-card service-card--featured reveal">
+            <div class="service-badge service-badge--unique" aria-label="Unikátní varianta">Unikátní</div>
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="22" cy="28" r="10" stroke="currentColor" stroke-width="2"/>
+                <circle cx="42" cy="28" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M32 18 L32 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M26 10 Q32 6 38 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M20 48 Q32 56 44 48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="32" y1="48" x2="32" y2="56" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Svatební den bez starostí</h3>
+            <p>Kompletní hudební zajištění vašeho svatebního dne. Jeden tým, jeden kontrakt — od prvního tónu u oltáře až po poslední tanec. Profesionální ozvučení certifikovaným zvukařem je součástí balíčku.</p>
+            <ul class="service-list">
+              <li>Hudební doprovod obřadu</li>
+              <li>Cimbálovka při hostině</li>
+              <li>Večerní taneční zábava</li>
+              <li>Profesionální ozvučení v ceně</li>
+            </ul>
+            <span class="service-tag">Obřad · Hostina · Zábava · Ozvučení</span>
+            <a href="#kontakt" class="service-cta service-cta--featured"
+               onclick="prefillAndScroll('svatba-komplet'); return false;">Poptat svatební den</a>
+          </article>
+
+          <!-- KARTA 3: All Night Show™ -->
+          <article class="service-card reveal">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 20 Q32 12 56 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M50 15 L56 20 L50 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M56 44 Q32 52 8 44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M14 49 L8 44 L14 39" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="32" cy="32" r="6" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>All Night Show™</h3>
+            <p>Naši multiinstrumentalisté nastoupí jako plnohodnotný moderní band — bicí, kytara, baskytara, klavír, zpěv. Energické covery hitů všech generací, tanec až do rána. Ideální pro plesy, firemní večírky a galavečery, kde chcete parket plný po celou noc.</p>
+            <ul class="service-list">
+              <li>Plesy a maturitní plesy</li>
+              <li>Firemní večírky a galavečery</li>
+              <li>Narozeninové a jubilejní oslavy</li>
+              <li>Festivaly a open-air eventy</li>
+            </ul>
+            <span class="service-tag">Party · Plesy · Eventy · Firemní akce</span>
+            <a href="#kontakt" class="service-cta"
+               onclick="prefillAndScroll('all-night'); return false;">Poptat All Night Show</a>
+          </article>
+
+        </div>
+
+        <div class="services-note reveal">
+          <p>Nejste si jistí která varianta je pro vás ta pravá? <a href="#kontakt">Napište nám</a> — rádi poradíme a sestavíme nabídku přesně na míru vaší akce.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── JAK TO FUNGUJE ── -->
+    <section id="jak-to-funguje" class="section section--alt" aria-label="Jak to funguje">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Jednoduché</span>
+          <h2>Jak to funguje</h2>
+          <p class="section-sub">Objednejte přesně to co potřebujete — nic víc, nic míň.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="how-grid">
+
+          <div class="how-item reveal">
+            <span class="how-number" aria-hidden="true">01</span>
+            <h4>Napište nám</h4>
+            <p>Řekněte nám o své akci — typ, datum, místo, přibližný počet hostů. Odpovíme do 24 hodin s dostupností.</p>
+          </div>
+
+          <div class="how-item reveal">
+            <span class="how-number" aria-hidden="true">02</span>
+            <h4>Vyberete variantu</h4>
+            <p>Jen cimbálovka na večírek? Kompletní svatební servis? Svatební den bez starostí? Sestavíme nabídku přesně pro vás.</p>
+          </div>
+
+          <div class="how-item reveal">
+            <span class="how-number" aria-hidden="true">03</span>
+            <h4>Doladíme detaily</h4>
+            <p>Repertoár, délka produkce, ozvučení, případné speciální požadavky. Vše konzultujeme předem.</p>
+          </div>
+
+          <div class="how-item reveal">
+            <span class="how-number" aria-hidden="true">04</span>
+            <h4>Užijete si akci</h4>
+            <p>Přijedeme připraveni, profesionálně ozvučíme a postaráme se o hudbu — vy se staráte o své hosty.</p>
+          </div>
+
+        </div>
+
+        <div class="how-cta reveal">
+          <a href="#kontakt" class="btn btn-primary">Začít poptávkou</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── FULL DAY PRODUCTION ── -->
+    <section id="full-day" data-section="full-day" class="section section--alt" aria-label="Full Day Production">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Náš unikátní koncept</span>
+          <h2>Svatební den bez starostí</h2>
+          <p class="section-sub">Jedna kapela. Tři podoby. Celý váš den.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="fullday-intro reveal">
+          <p class="lead">Svatební den bez starostí není jen svatební balíček — je to způsob, jak přistupujeme k velkým akcím. Naši hudebníci jsou multiinstrumentalisté, kteří zvládají tradiční cimbálové nástroje i plnohodnotný moderní band. Výsledek? Jedna kapela, která pokryje ranní ceremoniál, odpolední hostinu i noční taneční párty — bez kompromisů, bez koordinace více kapel, bez zbytečných nákladů.</p>
+          <div class="fullday-usecases">
+            <span>✓ Velké svatby</span>
+            <span>✓ Galavečery</span>
+            <span>✓ Firemní akce</span>
+            <span>✓ Vícedenní festivaly</span>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline" aria-label="Průběh svatebního dne">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-time">Dopoledne</div>
+            <div class="timeline-content">
+              <h4>Svatební obřad</h4>
+              <p>Akustický doprovod — housle, cimbál, zpěv. Intimní, dojemný, přesně na míru vašemu obřadu. Vlastní ozvučení v ceně.</p>
+              <span class="timeline-tag" aria-label="Cimbálová sestava">🎻 Cimbálová sestava</span>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-time">Odpoledne</div>
+            <div class="timeline-content">
+              <h4>Svatební hostina</h4>
+              <p>Moderní cimbálová muzika — živé lidovky, populární hity v netradičních aranžích, atmosféra pro každého hosta od 8 do 88 let.</p>
+              <span class="timeline-tag" aria-label="Moderní cimbálovka">🎶 Moderní cimbálovka</span>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-time">Večer</div>
+            <div class="timeline-content">
+              <h4>Taneční zábava</h4>
+              <p>Plnohodnotný moderní band nastupuje — bicí, kytara, baskytara, klavír. Taneční podlaha zaplněná do poslední minuty.</p>
+              <span class="timeline-tag" aria-label="Moderní band">🥁 Moderní band</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Benefits -->
+        <div class="fullday-benefits">
+
+          <div class="benefit reveal">
+            <span class="benefit-icon" aria-hidden="true">💰</span>
+            <h4>Ušetříte</h4>
+            <p>Jeden honorář místo dvou. Žádné duplicitní náklady na dopravu, ozvučení a koordinaci.</p>
+          </div>
+
+          <div class="benefit reveal">
+            <span class="benefit-icon" aria-hidden="true">🎯</span>
+            <h4>Bez starostí</h4>
+            <p>Jeden kontrakt, jeden kontakt, nulová koordinace mezi kapelami. My víme co děláme.</p>
+          </div>
+
+          <div class="benefit reveal">
+            <span class="benefit-icon" aria-hidden="true">🌍</span>
+            <h4>Prověřeno v zahraničí</h4>
+            <p>Odehráno ve Švýcarsku, Řecku, Německu, Slovinsku i USA. Mezinárodní standardy.</p>
+          </div>
+
+          <div class="benefit reveal">
+            <span class="benefit-icon" aria-hidden="true">🎙️</span>
+            <h4>Ozvučení v ceně</h4>
+            <p>Certifikovaný zvukař je součástí týmu. Profesionální produkce bez příplatků.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── REFERENCE ── -->
+    <section id="reference" data-section="reference" class="section" aria-label="Reference">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Proč Poštár</span>
+          <h2>Zkušenosti, které slyšíte</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- Statistiky -->
+        <div class="stats-grid" aria-label="Klíčové statistiky">
+          <div class="stat reveal">
+            <div class="stat-row">
+              <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+            </div>
+            <span class="stat-label">let zkušeností</span>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-row">
+              <span class="stat-number" data-target="300">0</span><span class="stat-suffix">+</span>
+            </div>
+            <span class="stat-label">odehraných akcí</span>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-row">
+              <span class="stat-number" data-target="6">0</span><span class="stat-suffix"></span>
+            </div>
+            <span class="stat-label">zemí v zahraničí</span>
+          </div>
+          <div class="stat reveal">
+            <div class="stat-row">
+              <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+            </div>
+            <span class="stat-label">spokojených klientů</span>
+          </div>
+        </div>
+
+        <!-- Vlajky zemí -->
+        <div class="countries reveal">
+          <h3>Hrajeme tam, kde si nás přejete</h3>
+          <p class="countries-sub">Zkušenosti z akcí ve Švýcarsku, Řecku, Německu, Slovinsku i USA nám dávají přehled, který v Čechách nenajdete. Mezinárodní standardy, domácí srdečnost.</p>
+          <div class="flags-grid">
+            <div class="flag-item">
+              <span class="flag-code">CZ</span>
+              <span class="flag-name">Česká republika</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-code">CH</span>
+              <span class="flag-name">Švýcarsko</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-code">GR</span>
+              <span class="flag-name">Řecko</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-code">DE</span>
+              <span class="flag-name">Německo</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-code">SI</span>
+              <span class="flag-name">Slovinsko</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-code">US</span>
+              <span class="flag-name">USA</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recenze -->
+        <div class="reviews-grid" aria-label="Recenze klientů">
+
+          <blockquote class="review-card reveal">
+            <p>"Poštár nám zajistil celý svatební den — od obřadu přes hostinu až po taneční zábavu. Nemuseli jsme řešit vůbec nic. Hosté byli nadšení."</p>
+            <footer>
+              <strong>Martina &amp; Jakub</strong>
+              <span>Svatba, Plzeň 2024</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="review-card reveal">
+            <p>"Nečekali jsme, že cimbálová muzika může znít takhle moderně. Mladí i starší hosté tancovali celý večer. Absolutně doporučujeme."</p>
+            <footer>
+              <strong>Petra &amp; Martin</strong>
+              <span>Svatba, Jihočeský kraj 2024</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="review-card reveal">
+            <p>"Profesionální přístup od první zprávy až po poslední tón. Ozvučení bylo skvělé, zvukař věděl co dělá. Firemní večírek se povedl na jedničku."</p>
+            <footer>
+              <strong>Jan Novák</strong>
+              <span>Firemní večírek, Praha 2023</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALERIE ── -->
+    <section id="galerie" data-section="galerie" class="section section--alt" aria-label="Galerie">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Galerie</span>
+          <h2>Poštár v akci</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="gallery-grid" role="list">
+
+          <div class="gallery-item gallery-item--large" role="listitem">
+            <img src="gallery/foto1.jpg" alt="Poštár — moderní cimbálová muzika živé vystoupení" loading="lazy" width="800" height="600">
+            <div class="gallery-overlay" aria-hidden="true"><span>Moderní cimbálová muzika</span></div>
+          </div>
+
+          <div class="gallery-item" role="listitem">
+            <img src="gallery/foto2.jpg" alt="Poštár — hudba na svatební obřad" loading="lazy" width="400" height="400">
+            <div class="gallery-overlay" aria-hidden="true"><span>Svatební obřad</span></div>
+          </div>
+
+          <div class="gallery-item" role="listitem">
+            <img src="gallery/foto3.jpg" alt="Poštár — kapela na svatební hostině" loading="lazy" width="400" height="400">
+            <div class="gallery-overlay" aria-hidden="true"><span>Svatební hostina</span></div>
+          </div>
+
+          <div class="gallery-item gallery-item--wide" role="listitem">
+            <img src="gallery/foto4.jpg" alt="Poštár — večerní taneční zábava" loading="lazy" width="800" height="400">
+            <div class="gallery-overlay" aria-hidden="true"><span>Večerní zábava</span></div>
+          </div>
+
+          <div class="gallery-item" role="listitem">
+            <img src="gallery/foto5.jpg" alt="Poštár — živá hudba firemní večírek" loading="lazy" width="400" height="400">
+            <div class="gallery-overlay" aria-hidden="true"><span>Firemní akce</span></div>
+          </div>
+
+          <div class="gallery-item" role="listitem">
+            <img src="gallery/foto6.jpg" alt="Poštár — profesionální ozvučení" loading="lazy" width="400" height="400">
+            <div class="gallery-overlay" aria-hidden="true"><span>Profesionální produkce</span></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SLEDUJTE NÁS ── -->
+    <section id="socialni-site" class="section social-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Sledujte nás</span>
+          <h2>Buďte u toho</h2>
+          <p class="social-sub">Zákulisí, ukázky z vystoupení a novinky.</p>
+        </div>
+        <div class="social-cards">
+
+          <a href="https://www.instagram.com/postar.cz"
+             target="_blank" rel="noopener"
+             class="social-card">
+            <div class="social-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <div class="social-card-body">
+              <strong>Instagram</strong>
+              <span>@postar.cz</span>
+            </div>
+            <div class="social-card-arrow">→</div>
+          </a>
+
+          <a href="https://www.facebook.com/postar.cz"
+             target="_blank" rel="noopener"
+             class="social-card">
+            <div class="social-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="36" height="36">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <div class="social-card-body">
+              <strong>Facebook</strong>
+              <span>Poštár</span>
+            </div>
+            <div class="social-card-arrow">→</div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox modal -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galerie — větší náhled" hidden>
+      <button class="lightbox-close" aria-label="Zavřít galerii">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <button class="lightbox-prev" aria-label="Předchozí fotografie">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-img">
+        <p class="lightbox-caption"></p>
+      </div>
+      <button class="lightbox-next" aria-label="Následující fotografie">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ── KONTAKT ── -->
+    <section id="kontakt" data-section="kontakt" class="section section--alt" aria-label="Kontaktní formulář a rezervace">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label">Rezervace</span>
+          <h2>Rezervujte svůj termín</h2>
+          <p class="section-sub">Ověřte dostupnost a získejte nezávaznou nabídku do 24 hodin.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="kontakt-grid">
+
+          <!-- Formulář -->
+          <form id="poptavka-form" class="contact-form"
+                netlify data-netlify="true" name="poptavka"
+                novalidate
+                aria-label="Formulář poptávky">
+            <input type="hidden" name="form-name" value="poptavka">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="jmeno">Jméno a příjmení <abbr title="povinné pole">*</abbr></label>
+                <input type="text" id="jmeno" name="jmeno" required
+                       placeholder="Jana Nováková" autocomplete="name">
+                <span class="form-error" role="alert"></span>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail <abbr title="povinné pole">*</abbr></label>
+                <input type="email" id="email" name="email" required
+                       placeholder="jana@email.cz" autocomplete="email">
+                <span class="form-error" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefon">Telefon</label>
+                <input type="tel" id="telefon" name="telefon"
+                       placeholder="+420 777 000 000" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="typ-akce">Typ akce <abbr title="povinné pole">*</abbr></label>
+                <select id="typ-akce" name="typ-akce" required>
+                  <option value="" disabled selected>Vyberte typ akce</option>
+                  <option value="cimbalovka">Moderní cimbálovka</option>
+                  <option value="svatba-komplet">Svatební servis (komplet)</option>
+                  <option value="svatba-obrad">Jen hudba k obřadu</option>
+                  <option value="svatba-zabava">Jen večerní zábava</option>
+                  <option value="full-day">Svatební den bez starostí</option>
+                  <option value="ples">Ples</option>
+                  <option value="firemni">Firemní večírek / galavečer</option>
+                  <option value="festival">Festival / obecní akce</option>
+                  <option value="narozeniny">Narozeniny / oslava</option>
+                  <option value="jine">Jiné</option>
+                </select>
+                <span class="form-error" role="alert"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="datum">Datum akce</label>
+                <input type="date" id="datum" name="datum" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="misto">Místo konání</label>
+                <input type="text" id="misto" name="misto" placeholder="Město, region">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="zprava">Zpráva / požadavky</label>
+              <textarea id="zprava" name="zprava" rows="4"
+                        placeholder="Řekněte nám více o vaší akci, počtu hostů, délce produkce..."></textarea>
+            </div>
+
+            <div class="form-group form-group--checkbox">
+              <label class="checkbox-label">
+                <input type="checkbox" name="full-day" value="ano">
+                <span class="checkbox-custom" aria-hidden="true"></span>
+                <span>Mám zájem o <strong>Svatební den bez starostí</strong> — cimbálovka + moderní band, více stylů v rámci jedné akce</span>
+              </label>
+            </div>
+
+            <div class="form-group form-group--checkbox">
+              <label class="checkbox-label">
+                <input type="checkbox" name="gdpr" id="gdpr" required>
+                <span class="checkbox-custom" aria-hidden="true"></span>
+                <span>Souhlasím se zpracováním osobních údajů <abbr title="povinné pole">*</abbr></span>
+              </label>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large">
+              <span class="btn-text">Odeslat poptávku zdarma</span>
+              <span class="btn-loading" hidden aria-live="polite">Odesílám...</span>
+            </button>
+
+            <div class="form-success" hidden role="status" aria-live="polite">
+              <h4>Děkujeme za poptávku!</h4>
+              <p>Ozveme se vám do 24 hodin s dostupností a nezávaznou nabídkou.</p>
+            </div>
+
+          </form>
+
+          <!-- Kontaktní info -->
+          <aside class="kontakt-info" aria-label="Přímý kontakt">
+            <div class="kontakt-info-card">
+              <h3>Kontaktujte nás přímo</h3>
+
+              <div class="kontakt-item">
+                <span class="kontakt-icon" aria-hidden="true">📧</span>
+                <div>
+                  <small>E-mail</small>
+                  <a href="mailto:info@postar.cz">info@postar.cz</a>
+                </div>
+              </div>
+
+              <div class="kontakt-item">
+                <span class="kontakt-icon" aria-hidden="true">📱</span>
+                <div>
+                  <small>Telefon</small>
+                  <a href="tel:+420">+420 — doplnit</a>
+                </div>
+              </div>
+
+              <div class="kontakt-item">
+                <span class="kontakt-icon" aria-hidden="true">📍</span>
+                <div>
+                  <small>Základna</small>
+                  <span>Plzeňský kraj, ČR</span>
+                </div>
+              </div>
+
+              <div class="kontakt-social">
+                <a href="https://www.instagram.com/postar.cz" target="_blank" rel="noopener noreferrer"
+                   class="social-link" aria-label="Instagram Poštár">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+                  </svg>
+                </a>
+                <a href="https://www.facebook.com/postar.cz" target="_blank" rel="noopener noreferrer"
+                   class="social-link" aria-label="Facebook Poštár">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                  </svg>
+                </a>
+              </div>
+
+              <div class="kontakt-note">
+                <p><span aria-hidden="true">⚡</span> Odpovídáme do 24 hodin</p>
+                <p><span aria-hidden="true">📅</span> Termíny se plní rychle — doporučujeme rezervovat 6–12 měsíců dopředu</p>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <img
+            src="logo.png"
+            alt="Poštár"
+            class="footer-logo"
+            width="64"
+            height="64"
+            loading="lazy"
+          >
+          <p>Moderní cimbálová muzika.<br>Kompletní hudební servis.</p>
+        </div>
+
+        <!-- Navigation links -->
+        <div class="footer-links">
+          <h4>Navigace</h4>
+          <ul>
+            <li><a href="#sluzby">Služby</a></li>
+            <li><a href="#full-day">Svatební den</a></li>
+            <li><a href="#reference">Reference</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-social">
+          <h4>Sledujte nás</h4>
+          <div class="footer-social-links">
+            <a
+              href="https://www.instagram.com/postar.cz"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram Poštár"
+            >
+              <!-- Instagram SVG -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+
+            <a
+              href="https://www.facebook.com/postar.cz"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook Poštár"
+            >
+              <!-- Facebook SVG -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-contact">
+          <h4>Kontakt</h4>
+          <a href="mailto:info@postar.cz">info@postar.cz</a>
+          <a href="tel:+420">+420 — doplnit</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Poštár. Všechna práva vyhrazena.</p>
+        <p>Powered by <a href="#" target="_blank" rel="noopener">MH Fusion Labs</a></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+
+  <!-- Paperclip Portfolio Site v1.0 -->
+</body>
+</html>

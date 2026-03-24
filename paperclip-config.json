@@ -1,0 +1,17 @@
+{
+  "site": "postar",
+  "domain": "www.postar.cz",
+  "version": "1.0.0",
+  "agency": "Paperclip",
+  "colors": {
+    "gold": "#c9a84c",
+    "bg": "#0a0804",
+    "text": "#f0ead8"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/postar.cz",
+    "facebook": "https://www.facebook.com/postar.cz"
+  },
+  "cms_ready": false,
+  "sections": ["hero","sluzby","full-day","reference","galerie","kontakt"]
+}
