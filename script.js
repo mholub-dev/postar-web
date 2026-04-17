@@ -299,6 +299,7 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   const lbImg     = qs('.lightbox-img',     lightbox);
   const lbCaption = qs('.lightbox-caption', lightbox);
+  const lbCounter = qs('.lightbox-counter', lightbox);
   const lbClose   = qs('.lightbox-close',   lightbox);
   const lbPrev    = qs('.lightbox-prev',     lightbox);
   const lbNext    = qs('.lightbox-next',     lightbox);
@@ -307,7 +308,7 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   let current = 0;
 
   function getItems() {
-    return qsa('.gallery-item img');
+    return qsa('.gallery-item');
   }
 
   function open(index) {
@@ -325,11 +326,14 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   }
 
   function show(index) {
-    const img = items[index];
-    if (!img) return;
-    lbImg.src         = img.src;
-    lbImg.alt         = img.alt;
-    lbCaption.textContent = img.alt;
+    const item   = items[index];
+    if (!item) return;
+    const img    = item.querySelector('img');
+    const capEl  = item.querySelector('.gallery-overlay span');
+    lbImg.src    = img  ? img.src  : '';
+    lbImg.alt    = img  ? img.alt  : '';
+    lbCaption.textContent = capEl ? capEl.textContent : (img ? img.alt : '');
+    if (lbCounter) lbCounter.textContent = (index + 1) + '\u00a0/\u00a0' + items.length;
     lbPrev.style.visibility = items.length > 1 ? 'visible' : 'hidden';
     lbNext.style.visibility = items.length > 1 ? 'visible' : 'hidden';
   }
@@ -348,12 +352,16 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   document.addEventListener('click', e => {
     const item = e.target.closest('.gallery-item');
     if (!item) return;
-    const img = item.querySelector('img');
-    if (!img) return;
-    const allImgs = getItems();
-    const idx     = allImgs.indexOf(img);
+    const allItems = getItems();
+    const idx = allItems.indexOf(item);
     open(idx >= 0 ? idx : 0);
   });
+
+  // Open on "Zobrazit všechny fotky" button
+  const showAllBtn = qs('.gallery-show-all');
+  if (showAllBtn) {
+    showAllBtn.addEventListener('click', () => open(0));
+  }
 
   lbClose.addEventListener('click', close);
   lbPrev.addEventListener('click',  prev);
@@ -372,7 +380,7 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     if (e.target === lightbox) close();
   });
 
-  // Touch swipe on mobile
+  // Touch swipe (min 50px)
   let touchStartX = 0;
   lightbox.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
@@ -380,7 +388,7 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   lightbox.addEventListener('touchend', e => {
     const delta = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(delta) < 40) return;
+    if (Math.abs(delta) < 50) return;
     delta < 0 ? next() : prev();
   }, { passive: true });
 })();
@@ -495,3 +503,282 @@ if (poptavkaForm) {
     }, 900);
   });
 }
+
+// ── How-grid carousel — dot indicators ──
+(function () {
+  var grid    = document.querySelector('.how-grid');
+  var dotsEl  = document.querySelector('.how-dots');
+  if (!grid || !dotsEl) return;
+
+  var items = Array.from(grid.querySelectorAll('.how-item'));
+  var dots  = Array.from(dotsEl.querySelectorAll('.how-dot'));
+
+  function setActive(idx) {
+    dots.forEach(function (d, i) {
+      d.classList.toggle('is-active', i === idx);
+    });
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        setActive(items.indexOf(entry.target));
+      }
+    });
+  }, { root: grid, threshold: 0.5 });
+
+  items.forEach(function (item) { observer.observe(item); });
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      items[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    });
+  });
+}());
+
+// ── Service card detail overlay ──
+(function () {
+  // Vytvoř overlay element (jednou, sdílený pro všechny karty)
+  var overlay = document.createElement('div');
+  overlay.className = 'card-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.innerHTML =
+    '<div class="card-overlay__panel">' +
+      '<div class="card-overlay__header">' +
+        '<span class="card-overlay__title"></span>' +
+        '<button class="card-overlay__close" type="button" aria-label="Zavřít">\u00d7</button>' +
+      '</div>' +
+      '<div class="card-overlay__body"></div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  var panel      = overlay.querySelector('.card-overlay__panel');
+  var titleEl    = overlay.querySelector('.card-overlay__title');
+  var bodyEl     = overlay.querySelector('.card-overlay__body');
+  var closeBtn   = overlay.querySelector('.card-overlay__close');
+  var currentCta = null;
+
+  function openOverlay(card) {
+    var h3   = card.querySelector('h3');
+    var list = card.querySelector('.service-list');
+    var tag  = card.querySelector('.service-tag');
+    var cta  = card.querySelector('.service-cta');
+
+    titleEl.textContent = h3 ? h3.textContent : '';
+    bodyEl.innerHTML = '';
+    if (list) bodyEl.appendChild(list.cloneNode(true));
+    if (tag)  bodyEl.appendChild(tag.cloneNode(true));
+    if (cta)  { bodyEl.appendChild(cta.cloneNode(true)); currentCta = cta; }
+    else      { currentCta = null; }
+
+    overlay.classList.add('is-visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('is-visible');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeOverlay);
+
+  bodyEl.addEventListener('click', function (e) {
+    if (!e.target.closest('.service-cta')) return;
+    e.preventDefault();
+    closeOverlay();
+    setTimeout(function () { if (currentCta) currentCta.click(); }, 50);
+  });
+
+  overlay.addEventListener('click', function (e) {
+    if (!panel.contains(e.target)) closeOverlay();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeOverlay();
+  });
+
+  // Vlož "Více informací →" za popis každé karty
+  document.querySelectorAll('.service-card').forEach(function (card) {
+    var desc = card.querySelector('p');
+    if (!desc) return;
+
+    var link = document.createElement('button');
+    link.className   = 'card-more-link';
+    link.textContent = 'V\u00edce informac\u00ed \u2192';
+    link.type        = 'button';
+    desc.insertAdjacentElement('afterend', link);
+
+    link.addEventListener('click', function () { openOverlay(card); });
+  });
+}());
+
+// ── Timeline + Benefits carousels — dot indicators ──
+(function () {
+  function initCarouselDots(trackSel, dotsSel, itemSel) {
+    var track  = document.querySelector(trackSel);
+    var dotsEl = document.querySelector(dotsSel);
+    if (!track || !dotsEl) return;
+
+    var items = Array.from(track.querySelectorAll(itemSel));
+    var dots  = Array.from(dotsEl.querySelectorAll('.carousel-dot'));
+
+    function setActive(idx) {
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === idx);
+      });
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          setActive(items.indexOf(entry.target));
+        }
+      });
+    }, { root: track, threshold: 0.5 });
+
+    items.forEach(function (item) { observer.observe(item); });
+
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        items[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      });
+    });
+  }
+
+  initCarouselDots('.timeline', '.timeline-dots', '.timeline-item');
+  initCarouselDots('.fullday-benefits', '.benefits-dots', '.benefit');
+}());
+
+// ── Reviews — auto-rotating testimonial (mobile only) ──
+(function () {
+  var grid = document.querySelector('.reviews-grid');
+  if (!grid) return;
+
+  var cards = Array.from(grid.querySelectorAll('.review-card'));
+  if (cards.length < 2) return;
+
+  var dotsEl   = document.querySelector('.reviews-dots');
+  var dots     = dotsEl ? Array.from(dotsEl.querySelectorAll('.carousel-dot')) : [];
+  var active   = 0;
+  var timer    = null;
+  var animating = false;
+  var mq       = window.matchMedia('(max-width: 767px)');
+
+  function updateDots() {
+    dots.forEach(function (d, i) {
+      d.classList.toggle('is-active', i === active);
+    });
+  }
+
+  function goTo(idx, fwd) {
+    if (idx === active || animating) return;
+    animating = true;
+
+    var forward   = fwd !== undefined ? fwd : idx > active;
+    var enterFrom = forward ? '100%'  : '-100%';
+    var exitTo    = forward ? '-100%' : '100%';
+    var oldCard   = cards[active];
+    var newCard   = cards[idx];
+
+    active = idx;
+    updateDots();
+
+    // Old card → absolute (leaves flow).
+    // New card → relative off-screen (enters flow).
+    // Both in same sync block → single reflow, grid never loses height.
+    oldCard.style.transition = 'none';
+    oldCard.style.position   = 'absolute';
+    oldCard.style.top        = '0';
+    oldCard.style.left       = '0';
+
+    newCard.style.transition = 'none';
+    newCard.style.position   = 'relative';
+    newCard.style.top        = '';
+    newCard.style.left       = '';
+    newCard.style.visibility = 'visible';
+    newCard.style.transform  = 'translateX(' + enterFrom + ')';
+
+    newCard.getBoundingClientRect(); // force reflow
+
+    // Slide both simultaneously
+    oldCard.style.transition = 'transform 0.35s ease';
+    oldCard.style.transform  = 'translateX(' + exitTo + ')';
+    newCard.style.transition = 'transform 0.35s ease';
+    newCard.style.transform  = 'translateX(0)';
+
+    setTimeout(function () {
+      // New card is already relative — just park and hide old card
+      oldCard.style.transition = 'none';
+      oldCard.style.transform  = 'translateX(' + (forward ? '100%' : '-100%') + ')';
+      oldCard.style.visibility = 'hidden';
+      animating = false;
+    }, 350);
+  }
+
+  function next() { goTo((active + 1) % cards.length, true); }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(next, 5000);
+  }
+
+  function init() {
+    // Measure all cards in normal flow (hidden to avoid flash)
+    cards.forEach(function (c) {
+      c.style.transition = 'none';
+      c.style.position   = 'relative';
+      c.style.top        = '';
+      c.style.left       = '';
+      c.style.transform  = 'translateX(0)';
+      c.style.visibility = 'hidden';
+      c.style.minHeight  = '';
+    });
+
+    // Find tallest, apply uniform min-height to cards and grid
+    var maxH = cards.reduce(function (m, c) { return Math.max(m, c.offsetHeight); }, 0);
+    cards.forEach(function (c) { c.style.minHeight = maxH + 'px'; });
+    grid.style.minHeight = maxH + 'px';
+
+    // Set carousel starting positions
+    cards.forEach(function (c, i) {
+      c.style.position   = i === 0 ? 'relative'       : 'absolute';
+      c.style.top        = i === 0 ? ''                : '0';
+      c.style.left       = i === 0 ? ''                : '0';
+      c.style.transform  = i === 0 ? 'translateX(0)'   : 'translateX(100%)';
+      c.style.visibility = i === 0 ? ''                : 'hidden';
+    });
+
+    active = 0;
+    animating = false;
+    updateDots();
+    startTimer();
+  }
+
+  function destroy() {
+    clearInterval(timer);
+    grid.style.minHeight = '';
+    cards.forEach(function (c) {
+      c.style.transition = '';
+      c.style.position   = '';
+      c.style.top        = '';
+      c.style.left       = '';
+      c.style.transform  = '';
+      c.style.visibility = '';
+      c.style.minHeight  = '';
+    });
+  }
+
+  mq.addEventListener('change', function (e) {
+    if (e.matches) { init(); } else { destroy(); }
+  });
+
+  if (mq.matches) { init(); }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      goTo(i);
+      startTimer();
+    });
+  });
+}());
